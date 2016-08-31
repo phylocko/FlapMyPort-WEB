@@ -141,7 +141,10 @@ $(function() {
 				<span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 			</div>
 		</td>
-		<td style="width: 100px;"><span class="label label-success">{{ port.ifName }}</span></td> 
+		<td style="width: 100px;">
+			<span ng-if="port.ifOperStatus == 'up'" class="label label-success">{{ port.ifName }}</span>
+			<span ng-if="port.ifOperStatus == 'down'" class="label label-danger">{{ port.ifName }}</span>
+		</td> 
 		<td style="width: 230px;"> {{ port.ifAlias }} </td>
 		<td> {{ port.firstFlapTime }} — {{ port.lastFlapTime }}</td> 
 		<td class="text-right"> 
@@ -160,7 +163,11 @@ $(function() {
 			</div-->
 		
 		</td>
-		<td class="text-right" style="width: 60px;"><span class="label label-success">{{ port.flapCount }}</span></td>
+		<td class="text-right" style="width: 60px;">
+			
+			<span ng-if="port.ifOperStatus == 'up'" class="label label-success">{{ port.flapCount }}</span>
+			<span ng-if="port.ifOperStatus == 'down'" class="label label-danger">{{ port.flapCount }}</span>
+		</td>
 	</tr>
 
 	</table>
