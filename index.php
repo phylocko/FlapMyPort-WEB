@@ -53,9 +53,7 @@ $(function() {
 </script-->
 
 
-
-
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" style="opacity: 0.95;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -95,8 +93,6 @@ $(function() {
 
     			<div class='input-group date' id='filter'>
     				<input 
-					ng-change="get('<?=api_url?>/?review&format=json&start=' + start + '&end=' + end + '&filter=' + fil)"
-					ng-model-options='{ debounce: 400 }'
 					data-toggle="tooltip" data-placement="bottom" title="Filter value"
 					type='text' ng-disabled="isLoading" class="form-control" ng-model="fil" placeholder="Filter"/>
     			</div>
@@ -106,15 +102,6 @@ $(function() {
 			</button>
 
     			</div>
-        		<div class="form-group">
-                		<ul class="nav navbar-nav navbar-right">
-                        		<li>
-                                		<!-- Button trigger modal -->
-                                		<button type="button" class="btn btn-primary btn-default" data-toggle="modal" data-target="#myModal">INS
-						</button>
-                        		</li>
-                		</ul>
-        		</div>
 		</div>
     	</form>
 
@@ -171,53 +158,6 @@ $(function() {
 	</tr>
 
 	</table>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create INS ticket</h4>
-      </div>
-      <div class="modal-body">
-
-        <form action="<?=ins_url?>" method="POST" target="_blank">
-	  <div class="form-group">
-	    <label for="name">Ticket name</label>
-	    <input type="text" name="name" class="form-control" id="name">
-	  </div>
-	  <div class="form-group">
-	    <label for="timefrom">Problem starts at</label>
-	    <input type="text" name="time_start" class="form-control" id="timestart" ng-model="firstFlapTime">
-	  </div>
-	  <div class="form-group">
-	    <label for="timeend">Problem finished at</label>
-	  <input type="text" name="time_end" class="form-control" id="timeend" ng-model="lastFlapTime">
-	  </div>
-	  <div class="form-group">
-	    <label for="timeend">Fibers impacted</label>
-	    <input type="text" name="fiber" class="form-control" id="timeend" value="">
-	  </div>
-	  <div class="form-group">
-	    <label for="timeend">Reason</label>
-	    <input type="text" name="reason" class="form-control" id="timeend" value="">
-	  </div>
-	  <div class="form-group">
-	    <label for="timeend">Clientnames</label> will be parsed and added to ticket
-	    <input type="text" name="clientname_list" class="form-control" id="timeend" value="">
-	  </div>
-	  <input type="hidden" name="type" value="2">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="sibmit" class="btn btn-primary">Create</button>
-      </div>
-      </form>
-    </div>
-  </div>
 </div>
 
 </body>
